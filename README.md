@@ -35,4 +35,4 @@ optional arguments:
 ```
 **Examples**
 
-python pydryve.py -f -a upload [filename]
+python pydrive.py -f -a upload [filename]
