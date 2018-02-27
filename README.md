@@ -7,8 +7,6 @@
         |___/
 ```
 
-# PyDrive
-
 PyDrive allows to upload and download files from google drive
 
 ## How to Install
