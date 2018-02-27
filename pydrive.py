@@ -104,13 +104,16 @@ class PyDrive:
 
     def upload(self, args):
         print(color.RED + "upload a file " + args.file + color.ENDC)
-
+        # vedere su google api drive per completare il comando
+        
     def download(self, args):
         print(color.GREEN + "download a file " + args.file + color.ENDC)
-
+        # vedere su google api drive per completare il comando
+   
     def find(self, args):
         print(color.BLUE + "find a file " + args.file + color.ENDC)
-
+        # vedere su google api drive per completare il comando
+      
     def list(self, args):
         print((color.PURPLE) + ("list all files ") + (color.ENDC))
         credentials = self.get_credentials()
