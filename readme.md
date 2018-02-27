@@ -14,3 +14,7 @@ ___________________________________________________________
             print t.table
 
 - fare il readme
+
+- provare list
+
+- fare upload, download e find
