@@ -15,6 +15,7 @@ PyDrive allows to upload and download files from google drive
 git clone https://github.com/We4theReport/PyDrive.git
 cd PyDrive
 pip install --upgrade google-api-python-client
+pip install -r requirements.txt
 
 ```
 ## Usage
