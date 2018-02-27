@@ -34,4 +34,4 @@ optional arguments:
 ```
 **Examples**
 
-python pydryve.py -f -a [filenime]
+python pydryve.py -f upload [filenime]
