@@ -15,8 +15,8 @@ try:
 
 except ImportError:
     flags = None
-    print("Error in the import libraries")
-    sys.exit(0)
+    #print("Error in the import libraries")
+    #sys.exit(0)
 
 
 # If modifying these scopes, delete your previously saved credentials
