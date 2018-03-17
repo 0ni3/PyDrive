@@ -1,4 +1,2 @@
 httplib2
-apiclient
-oauth2client
 argparse
