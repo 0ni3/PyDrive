@@ -127,11 +127,7 @@ class PyDrive:
     def download(self, args):
         print(color.GREEN + "download a file " + args.file + color.ENDC)
         # vedere su google api drive per completare il comando
-   
-    def find(self, args):
-        print(color.BLUE + "find a file " + args.file + color.ENDC)
-        # vedere su google api drive per completare il comando
-      
+        
     def list(self, args):
         results = self.drive_service.files().list(
             pageSize=10,fields="nextPageToken, files(id, name)").execute()
