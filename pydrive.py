@@ -152,7 +152,7 @@ class PyDrive:
             print('No files found.')
         else:
 	    print('Files:')
-	    for item ins items:
+	    for item in items:
 	        print('{0} ({1})'.format(item['name'], item['id']))
         
     def list(self, args):
