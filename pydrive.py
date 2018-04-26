@@ -142,19 +142,7 @@ class PyDrive:
 	    with io.open(self.filepath,'wb') as f:
 	        fh.seek(0)
 	        f.write(fh.read())
-            
-    def search(self, args):
-	print(color.BLUE + "Searching... " + args.file + color.ENDC)
-	results = self.drive_service.files().list(
-            pageSize=self.size,fields="nextPageToken, files(id, name)").execute()
-        items = results.get('files', [])
-        if not items:
-            print('No files found.')
-        else:
-	    print('Files:')
-	    for item in items:
-	        print('{0} ({1})'.format(item['name'], item['id']))
-        
+		
     def list(self, args):
         results = self.drive_service.files().list(
             pageSize=10,fields="nextPageToken, files(id, name)").execute()
