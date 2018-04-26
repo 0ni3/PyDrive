@@ -67,7 +67,7 @@ class GoogleDriveAuth:
             if flags:
                 credentials = tools.run_flow(flow, store, flags)
             else: # Needed only for compatibility with Python 2.6
-                credentials = tools.run(flow, store)
+                credentials = tools.run_flow(flow, store)
             print((color.GREEN) + 'Storing credentials to ' + credential_path + (color.ENDC))
             os.remove(os.path.join(current_dir, CLIENT_SECRET_FILE))
         return credentials
