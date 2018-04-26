@@ -132,7 +132,7 @@ class PyDrive:
         
     def download(self, args):
         print(color.GREEN + "Downloading... " + args.file + color.ENDC)
-	    request = drive_service.files().get_media(fileId=self.fileid)
+	    request = self.drive_service.files().get_media(fileId=self.fileid)
 	    fh = io.BytesIO()
 	    downloader = MediaIoBaseDownload(fh, request)
 	    done = False
