@@ -110,23 +110,50 @@ class PyDrive:
             self.download(args)
         elif args.action == "list":
             self.list(args)
-        elif args.action == "find":
+        elif args.action == "search":
             if not args.file:
                print((color.RED) + ("Missing '-f' or '--file' argument!") + (color.ENDC))
                sys.exit(-1)
-            self.find(args)
+            self.search(args)
         else:
             print((color.RED) + ("Missing command argument!") + (color.ENDC))
             sys.exit(-1)
         return args
 
     def upload(self, args):
-        print(color.RED + "upload a file " + args.file + color.ENDC)
-        # vedere su google api drive per completare il comando
+        print(color.RED + "Uploading..." + args.file + color.ENDC)
+	    file_metadata = {'name': self.filename}
+	    media = MediaFileUpload(self.filepath,
+                        	    mimetype=self.mymetype)
+	    file = drive_service.files().create(body=file_metadata,
+                                    	    media_body=media,
+                                    	    fields='id').execute()
+	    print('File ID: %s' % file.get('id'))
         
     def download(self, args):
-        print(color.GREEN + "download a file " + args.file + color.ENDC)
-        # vedere su google api drive per completare il comando
+        print(color.GREEN + "Downloading... " + args.file + color.ENDC)
+	    request = drive_service.files().get_media(fileId=self.fileid)
+	    fh = io.BytesIO()
+	    downloader = MediaIoBaseDownload(fh, request)
+	    done = False
+	    while done is False:
+	        status, done = downloader.next_chunk()
+	        print("Download %d%%." % int(status.proress() * 100))
+	    with io.open(self.filepath,'wb') as f:
+	        fh.seek(0)
+	        f.write(fh.read())
+            
+    def search(self, args):
+	print(color.BLUE + "Searching... " + args.file + color.ENDC)
+	results = self.drive_service.files().list(
+            pageSize=self.size,fields="nextPageToken, files(id, name)").execute()
+        items = results.get('files', [])
+        if not items:
+            print('No files found.')
+        else:
+	    print('Files:')
+	    for item ins items:
+	        print('{0} ({1})'.format(item['name'], item['id']))
         
     def list(self, args):
         results = self.drive_service.files().list(
