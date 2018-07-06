@@ -169,7 +169,7 @@ class PyDrive:
 			    fh.seek(0)
 			    f.write(fh.read())
 				
-     def search(self, args):
+    def search(self, args):
 	print(color.BLUE + "Searching... " + args.file + color.ENDC)
 	results = self.drive_service.files().list(
             pageSize=10,fields="nextPageToken, files(id, name)").execute()
