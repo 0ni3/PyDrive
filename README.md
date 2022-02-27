@@ -17,6 +17,7 @@ PyDrive allows to upload and download files from Google Drive
 ## How to enable the Google Drive API
 
  - Use [this wizard](https://console.developers.google.com/start/api?id=drive) to create or select a project in the Google Developers Console and automatically turn on the API. Click **Continue**, then **Go to credentials**.
+ - To obtain credentials for your service account:
  - On the **Add credentials to your project** page, click the **Cancel** button.
  - At the top of the page, select the **OAuth consent screen** tab. Select an **Email address**, enter a **Product name** if not already set, and click the **Save** button.
  - Select the **Credentials** tab, click the **Create credentials** button and select **OAuth client ID**.
@@ -24,6 +25,8 @@ PyDrive allows to upload and download files from Google Drive
  - Click **OK** to dismiss the resulting dialog.
  - Click the file_download (Download JSON) button to the right of the client ID.
  - Move this file to your PyDrive directory and rename it client_secret.json.
+
+ for more information, follow this tutorial: https://medium.com/swlh/google-drive-api-with-python-part-i-set-up-credentials-1f729cb0372b
 
 
 ## How to Install

@@ -57,10 +57,12 @@ class GoogleDriveAuth:
         credential_dir = os.path.join(home_dir, '.credentials')
         if not os.path.exists(credential_dir):
             os.makedirs(credential_dir)
-        credential_path = os.path.join(credential_dir,
-                                       'google-drive-credentials.json')
+        credential_path = os.path.join(credential_dir, 'google-drive-credentials.json')
         store = Storage(credential_path)
-        credentials = store.get()
+        try:
+            credentials = store.get()
+        except:
+            print('Working with flow-based credentials instantiation')
         if not credentials or credentials.invalid:
             flow = client.flow_from_clientsecrets(self.CLIENT_SECRET_FILE, self.SCOPES)
             flow.user_agent = self.APPLICATION_NAME
